@@ -7,7 +7,7 @@ function Users() {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetchCollection('users', controller.signal).then(setUsers).catch((requestError) => {
+    fetchCollection('/api/users/', controller.signal).then(setUsers).catch((requestError) => {
       if (requestError.name !== 'AbortError') setError(requestError.message);
     });
     return () => controller.abort();

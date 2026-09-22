@@ -7,7 +7,7 @@ function Workouts() {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetchCollection('workouts', controller.signal).then(setWorkouts).catch((requestError) => {
+    fetchCollection('/api/workouts/', controller.signal).then(setWorkouts).catch((requestError) => {
       if (requestError.name !== 'AbortError') setError(requestError.message);
     });
     return () => controller.abort();

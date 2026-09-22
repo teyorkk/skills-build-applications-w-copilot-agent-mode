@@ -7,7 +7,7 @@ function Teams() {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetchCollection('teams', controller.signal).then(setTeams).catch((requestError) => {
+    fetchCollection('/api/teams/', controller.signal).then(setTeams).catch((requestError) => {
       if (requestError.name !== 'AbortError') setError(requestError.message);
     });
     return () => controller.abort();

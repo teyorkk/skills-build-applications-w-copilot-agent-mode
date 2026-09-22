@@ -7,7 +7,7 @@ function Activities() {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetchCollection('activities', controller.signal).then(setActivities).catch((requestError) => {
+    fetchCollection('/api/activities/', controller.signal).then(setActivities).catch((requestError) => {
       if (requestError.name !== 'AbortError') setError(requestError.message);
     });
     return () => controller.abort();

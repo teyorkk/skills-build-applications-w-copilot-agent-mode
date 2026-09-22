@@ -7,7 +7,7 @@ function Leaderboard() {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetchCollection('leaderboard', controller.signal).then(setEntries).catch((requestError) => {
+    fetchCollection('/api/leaderboard/', controller.signal).then(setEntries).catch((requestError) => {
       if (requestError.name !== 'AbortError') setError(requestError.message);
     });
     return () => controller.abort();
