@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import { displayDate, fetchCollection } from '../api.js';
 
+const activitiesEndpoint = import.meta.env.VITE_CODESPACE_NAME?.trim()
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+  : 'http://localhost:8000/api/activities/';
+
 function Activities() {
   const [activities, setActivities] = useState([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
     const controller = new AbortController();
-    fetchCollection('/api/activities/', controller.signal).then(setActivities).catch((requestError) => {
+    fetchCollection(activitiesEndpoint, controller.signal).then(setActivities).catch((requestError) => {
       if (requestError.name !== 'AbortError') setError(requestError.message);
     });
     return () => controller.abort();

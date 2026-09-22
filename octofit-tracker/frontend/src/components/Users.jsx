@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import { fetchCollection } from '../api.js';
 
+const usersEndpoint = import.meta.env.VITE_CODESPACE_NAME?.trim()
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+  : 'http://localhost:8000/api/users/';
+
 function Users() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
     const controller = new AbortController();
-    fetchCollection('/api/users/', controller.signal).then(setUsers).catch((requestError) => {
+    fetchCollection(usersEndpoint, controller.signal).then(setUsers).catch((requestError) => {
       if (requestError.name !== 'AbortError') setError(requestError.message);
     });
     return () => controller.abort();
