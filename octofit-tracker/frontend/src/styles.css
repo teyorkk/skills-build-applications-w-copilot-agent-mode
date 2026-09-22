@@ -1,0 +1,12 @@
+:root {
+  background: #f4f7f8;
+  color: #172a3a;
+}
+
+body {
+  background: #f4f7f8;
+}
+
+.navbar .nav-link.active {
+  color: #7bdff2;
+}
