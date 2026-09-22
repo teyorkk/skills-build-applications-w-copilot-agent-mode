@@ -19,6 +19,11 @@ Seed MongoDB after starting a local MongoDB service:
 npm run seed --prefix octofit-tracker/backend
 ```
 
+For the frontend, create `octofit-tracker/frontend/.env.local` and define
+`VITE_CODESPACE_NAME` with the Codespaces name. The frontend uses it to call
+`https://<name>-8000.app.github.dev/api/...`; when it is unset, requests use
+`http://localhost:8000`.
+
 ## Run
 
 ```bash
