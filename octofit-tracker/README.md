@@ -13,6 +13,12 @@ npm install --prefix octofit-tracker/frontend
 npm install --prefix octofit-tracker/backend
 ```
 
+Seed MongoDB after starting a local MongoDB service:
+
+```bash
+npm run seed --prefix octofit-tracker/backend
+```
+
 ## Run
 
 ```bash
