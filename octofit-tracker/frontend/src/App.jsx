@@ -9,7 +9,7 @@ import Workouts from './components/Workouts.jsx';
 function Home() {
   return <section className="py-5"><p className="text-uppercase small fw-semibold text-primary mb-2">Your training command center</p><h1 className="display-5 fw-semibold">Make every session count.</h1><p className="lead text-secondary col-lg-7">Track your momentum, find your people, and keep the next workout within reach.</p><div className="row g-3 mt-4">{[['/activities', 'Logbook', 'Review recent movement.'], ['/leaderboard', 'Leaderboard', 'See how your team is moving.'], ['/workouts', 'Workout library', 'Choose your next challenge.']].map(([path, title, description]) => <NavLink className="col-md-4 text-decoration-none" to={path} key={path}><div className="card h-100 border-0 shadow-sm"><div className="card-body"><h2 className="h5 text-dark">{title}</h2><p className="text-secondary mb-0">{description}</p></div></div></NavLink>)}</div></section>;
 }
-
+//test
 function App() {
   return (
     <>
